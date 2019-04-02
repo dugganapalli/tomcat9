@@ -6,7 +6,7 @@ RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2
 RUN mv jdk-8u201-linux-x64.tar.gz /opt
 RUN tar -xzf /opt/jdk-8u201-linux-x64.tar.gz -C /opt
 RUN rm -rf /opt/jdk-8u201-linux-x64.tar.gz
-RUN echo "export JAVA_HOME=/opt/jdk1.8.0_201" >> /root/.bash_profile
-RUN echo "export PATH=$PATH:/opt/jdk1.8.0_201/bin" >> /root/.bash_profile
+ENV JAVA_HOME=/opt/jdk1.8.0_201 
+ENV PATH=$PATH:/opt/jdk1.8.0_201/bin
 #RUN /bin/sh -c "source /root/.bash_profile"
-RUN sudo . /root/.bash_profile
+#RUN /bin/bash -C /root/.bash_profile
