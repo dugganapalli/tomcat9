@@ -13,16 +13,12 @@ RUN wget  http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.17/bin/apac
 Run mv apache-tomcat-9.0.17.tar.gz /opt
 RUN tar -xzf /opt/apache-tomcat-9.0.17.tar.gz -C /opt 
 #RUN rm -rf /opt/apache-tomcat-9.0.17.tar.gz
-ENV CATALINA_HOME=/opt/apache-tomcat-9.0.17
-ENV PATH=$PATH:/opt/apache-tomcat-9.0.17/bin 
+ENV CATALINA_HOME=/tomcat/apache-tomcat-9.0.17
+ENV PATH=$PATH:/tomcat/apache-tomcat-9.0.17/bin 
 #RUN groupadd tomcat
 #RUN useradd -s /bin/bash -g tomcat tomcat
-#CMD /opt/apache-tomcat-9.0.17/bin/startup.sh
-#CMD [" /opt/tomcat/apache-tomcat-9.0.17/bin/startup.sh " , "run"]
-#EXPOSE 8080
-#WORKDIR ${CATALINA_HOME}
-#CMD [ "/opt/apache-tomcat-9.0.17/bin/startup.sh", "run" ]
-#WORKDIR ${CATALINA_HOME}
-CMD ["catalina.sh", "run"]
+RUN /tomcat/bin/startup.sh
+#CMD /tomcat/apache-tomcat-9.0.17/bin/catalina.sh
 EXPOSE 8080
+#CMD ["/tomcat/apache-tomcat-9.0.17/bin/startup.sh" , "run"]
 
